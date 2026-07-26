@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: datasquire-example
+  datasource:
+    url: jdbc:postgresql://localhost:5432/financedb
+    username: datasquire_reader
+    password: reader_pw
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY:}
+      chat:
+        options:
+          model: gpt-4o
+          temperature: 0.3
+      embedding:
+        options:
+          model: text-embedding-3-small
+
+datasquire:
+  enabled: true
+  orchestrator:
+    max-iterations: 5
+    quality-threshold: 0.7
+    timeout-seconds: 60
+  schema-rag:
+    enabled: true
+    top-k: 8
+    namespace: finance
+  sql-executor:
+    max-rows: 50
+    max-columns: 20
+    max-output-chars: 16000
+    statement-timeout-seconds: 30
+  session:
+    max-size: 100
+    ttl-minutes: 30
+  controller:
+    base-path: /api
+
+server:
+  port: 8080

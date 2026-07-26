@@ -1,0 +1,16 @@
+spring:
+  ai:
+    openai:
+      api-key: demo-not-used
+      enabled: false
+
+datasquire:
+  enabled: true
+  orchestrator:
+    mode: single-shot
+    max-iterations: 1
+    timeout-seconds: 10
+  schema-rag:
+    enabled: false
+  sql-executor:
+    enabled: false
